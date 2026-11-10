@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piloten i Bergen · Lowscore</title>
+<meta name="description" content="Fem kollektiv i Bergen låner en e-papirtavle i fire uker i januar 2027. Gratis.">
+<meta name="theme-color" content="#15191A">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ls-api" content="https://tpihsdosbteytykcxxce.supabase.co/functions/v1">
+<meta name="ls-region" content="">
+<meta name="ls-root" content="./">
+<link rel="canonical" href="https://vebjornlia.github.io/lowscore-web/pilot.html">
+<link rel="alternate" hreflang="nb" href="https://vebjornlia.github.io/lowscore-web/pilot.html"><link rel="alternate" hreflang="en" href="https://vebjornlia.github.io/lowscore-web/en/pilot.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Piloten i Bergen · Lowscore">
+<meta property="og:description" content="Fem kollektiv i Bergen låner en e-papirtavle i fire uker i januar 2027. Gratis.">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:image" content="https://vebjornlia.github.io/lowscore-web/img/og-nb.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css?v=a9e9626a">
+<script src="site.js?v=2fd908fb" defer></script>
+<script src="pilot.js?v=105404cd" defer></script>
+</head>
+<body data-page="pilot">
+<a class="skip" href="#main">Hopp til innholdet</a>
+<div class="langbar" id="langbar" hidden lang="en"><div class="wrap">This page is in Norwegian. <a href="en/pilot.html" data-setlang="en">Read it in English</a></div></div>
+<header class="top wrap">
+<a class="wordmark" href="./" aria-label="Lowscore, til forsiden">Lowscore</a>
+<nav aria-label="Språk og start"><a class="lang" href="en/pilot.html" hreflang="en" lang="en" data-setlang="en">English</a><a class="btn small" href="start.html">Lag en tavle</a></nav>
+</header>
+<main id="main" class="page">
+<h1>Piloten i Bergen</h1>
+<p class="lead">I januar 2027 låner fem kollektiv i Bergen hver sin e-papirtavle i fire uker. Det er gratis, og dere leverer den tilbake etterpå. Tavlene er håndbygde prototyper, så noe kommer til å gå galt. Det er derfor vi trenger dere.</p>
+<h2>Slik foregår det</h2>
+<ol class="next">
+<li><span class="n" aria-hidden="true">1</span><div><p>Vi kommer på besøk mellom 4. og 8. januar, setter opp tavla og hjelper alle som vil være med, i gang. Rundt en halvtime.</p></div></li>
+<li><span class="n" aria-hidden="true">2</span><div><p>Den første uka finner tavla paren til hver av dere. Så spiller dere til søndag 31. januar.</p></div></li>
+<li><span class="n" aria-hidden="true">3</span><div><p>Hver uke svarer dere på en kort sjekk, rundt tre minutter. Ærlige svar, også om det som er irriterende.</p></div></li>
+<li><span class="n" aria-hidden="true">4</span><div><p>I februar henter vi tavla og tar en prat på en halvtime. Dataene fra piloten slettes senest 2. mars 2027.</p></div></li>
+</ol>
+<h2>Hvem vi ser etter</h2>
+<ul>
+<li>Et kollektiv eller bofellesskap i Bergen, eller en familie med tenåringer (13 år og eldre)</li>
+<li>3 til 8 personer som deler kjøkken, gjerne en blanding av iPhone og Android</li>
+<li>Wifi på kjøkkenet, og et kjøleskap en magnet fester seg til</li>
+<li>At alle som skal spille, har lyst til det. Hver person bestemmer selv, og kan gå ut når hen vil.</li>
+</ul>
+<h2>Meld på kollektivet</h2>
+<p>Meld dere på innen fredag 11. desember. Vi tar kontakt på e-post før jul.</p>
+<form class="stack" data-signup="pilot" data-done="pilot-done" novalidate>
+<div class="field"><label for="p-email">E-post til kontaktpersonen</label><input class="input" id="p-email" name="email" type="email" autocomplete="email" required></div>
+<div class="field"><label for="p-area">Hvor i Bergen bor dere?</label><input class="input" id="p-area" maxlength="60" data-detail="area" placeholder="For eksempel Møhlenpris"></div>
+<div class="field"><label for="p-people">Hvor mange bor i kollektivet?</label><input class="input" id="p-people" type="number" inputmode="numeric" min="2" max="12" data-detail="people" style="max-width:140px"></div>
+<div class="field"><label for="p-ios">Hvor mange har iPhone?</label><input class="input" id="p-ios" type="number" inputmode="numeric" min="0" max="12" data-detail="iphones" style="max-width:140px"></div>
+<div class="field"><label for="p-android">Og Android?</label><input class="input" id="p-android" type="number" inputmode="numeric" min="0" max="12" data-detail="androids" style="max-width:140px"></div>
+<div class="field"><label for="p-note">Noe vi bør vite? (valgfritt)</label><textarea class="input" id="p-note" maxlength="300" data-detail="note"></textarea></div>
+<label class="check"><input type="checkbox" name="consent" required><span>Lowscore kan lagre e-postadressen og svarene mine for å ta kontakt om piloten. De slettes når piloten er over, og senest om 12 måneder. Mer i <a href="privacy.html" target="_blank">personvernerklæringen</a>.</span></label>
+<div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+<p class="error" role="alert"></p>
+<div><button class="btn" type="submit">Meld på kollektivet</button></div>
+</form>
+<div class="box" id="pilot-done" hidden tabindex="-1" role="status"><h3>Takk! Kollektivet er meldt på.</h3><p>Vi tar kontakt på e-post før jul.</p></div>
+
+<h2>Vil du vite når e-papirtavla kan kjøpes?</h2>
+<p>Legg igjen e-postadressen, så sier vi fra én gang når den er klar. Til da kan tavla gå på et gammelt nettbrett.</p>
+<form class="stack" data-signup="board" data-done="board-done" novalidate>
+<div class="field"><label for="b-email">E-post</label><input class="input" id="b-email" name="email" type="email" autocomplete="email" required></div>
+<label class="check"><input type="checkbox" name="consent" required><span>Lowscore kan lagre e-postadressen min for å si fra når e-papirtavla kan kjøpes. Den slettes etterpå, og senest om 12 måneder. Mer i <a href="privacy.html" target="_blank">personvernerklæringen</a>.</span></label>
+<div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+<p class="error" role="alert"></p>
+<div><button class="btn quiet" type="submit">Si fra til meg</button></div>
+</form>
+<div class="box" id="board-done" hidden tabindex="-1" role="status"><p>Takk! Vi sier fra når den er klar.</p></div>
+</main>
+<footer class="foot wrap">
+<p>Lowscore er laget i Bergen av Vebjørn, sammen med Claude, en KI fra Anthropic, som har gjort mye av arbeidet. <a href="open.html">Slik ble det laget, og tallene så langt</a>.</p>
+<ul><li><a href="rules.html">Reglene</a></li><li><a href="trmnl.html">Egen TRMNL</a></li><li><a href="privacy.html">Personvern</a></li><li><a href="terms.html">Vilkår</a></li></ul>
+</footer>
+<script id="ls-words" type="application/json">{"copied":"Kopiert","errNetwork":"Fikk ikke kontakt. Sjekk nettet og prøv igjen.","errOther":"Noe gikk galt: {e}","notLive":"Lowscore er ikke åpnet for alle ennå. Prøv igjen snart.","errEmail":"Sjekk e-postadressen.","errConsent":"Kryss av for at vi kan lagre adressen, ellers kan vi ikke ta kontakt.","errMany":"Det er sendt mange påmeldinger herfra den siste timen. Prøv igjen litt senere."}</script>
+</body>
+</html>

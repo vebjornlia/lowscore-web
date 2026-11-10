@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start a board · Lowscore</title>
+<meta name="description" content="Make a Lowscore board for your flat in a minute. The first season is free.">
+<meta name="theme-color" content="#15191A">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ls-api" content="https://tpihsdosbteytykcxxce.supabase.co/functions/v1">
+<meta name="ls-region" content="">
+<meta name="ls-root" content="../">
+<link rel="canonical" href="https://vebjornlia.github.io/lowscore-web/en/start.html">
+<link rel="alternate" hreflang="nb" href="https://vebjornlia.github.io/lowscore-web/start.html"><link rel="alternate" hreflang="en" href="https://vebjornlia.github.io/lowscore-web/en/start.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Start a board · Lowscore">
+<meta property="og:description" content="Make a Lowscore board for your flat in a minute. The first season is free.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://vebjornlia.github.io/lowscore-web/img/og-en.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../site.css?v=a9e9626a">
+<script src="../site.js?v=2fd908fb" defer></script>
+<script src="../start.js?v=7d4bd5bd" defer></script>
+</head>
+<body data-page="start">
+<a class="skip" href="#main">Skip to the content</a>
+
+<header class="top wrap">
+<a class="wordmark" href="../" aria-label="Lowscore, to the front page">Lowscore</a>
+<nav aria-label="Language and start"><a class="lang" href="../start.html" hreflang="nb" lang="nb" data-setlang="nb">Norsk</a></nav>
+</header>
+<main id="main" class="page">
+<div id="intro">
+<h1>Start a board</h1>
+<p class="lead">It takes a minute. You get a link to the board, a QR code for the others and a settings page. The first season is free.</p>
+<div class="box" id="not-live" hidden><p>Lowscore isn't open to everyone yet. To be among the first, <a href="pilot.html">sign up for the pilot</a>.</p></div>
+</div>
+<form id="make" class="stack" novalidate>
+<div class="field">
+<label for="name">Name of your flat</label>
+<input class="input" id="name" name="name" maxlength="40" autocomplete="off" required aria-describedby="name-hint" placeholder="For example The Møhlenpris flat">
+<p class="hint" id="name-hint">Shown at the top of the board. Letters, numbers and spaces, up to 40 characters.</p>
+</div>
+<div class="field">
+<span class="label" id="lang-label">Language on the board</span>
+<div class="seg" id="board-lang" role="group" aria-labelledby="lang-label"><button type="button" data-lang="nb" lang="nb">Norsk</button><button type="button" data-lang="en" lang="en">English</button></div>
+</div>
+<div class="field">
+<label for="email">Email (optional)</label>
+<input class="input" id="email" name="email" type="email" autocomplete="email" aria-describedby="email-hint">
+<p class="hint" id="email-hint">Only for one reminder before the free season ends. We can't send you the settings link again, so save it when you get it.</p>
+</div>
+<label class="check" id="updates-row"><input type="checkbox" name="updates"><span>Also send me news about Lowscore, at most once a month</span></label>
+<label class="check"><input type="checkbox" name="accept" required><span>I'm 18 or older and accept the <a href="terms.html" target="_blank">terms</a>. How we handle data: <a href="privacy.html" target="_blank">the privacy policy</a>.</span></label>
+<div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+<p class="error" id="make-error" role="alert"></p>
+<div><button class="btn" type="submit">Make the board</button></div>
+</form>
+
+<section id="done" hidden>
+<h1 tabindex="-1">Your board is ready</h1>
+<p class="lead"><b data-flat></b> has a board. <span data-trial>Free until <span data-until></span>.</span></p>
+<div class="box warn">
+<h2>Save the settings link now</h2>
+<p>With it the flat can be changed and deleted, so keep it to yourself. We don't keep it, so we can't send it again. Put it in your password manager, or send it to yourself.</p>
+<code class="keyline" data-settings></code>
+<div class="actions"><button class="btn small" type="button" data-copy-settings>Copy the link</button><button class="btn small quiet" type="button" data-share-settings>Share</button></div>
+<p class="hint" style="margin-top:12px">This browser remembers it too, until you ask it to forget. The board link and the QR code below are fine for anyone to see: they only show the board.</p>
+</div>
+<ol class="next">
+<li><span class="n" aria-hidden="true">1</span><div><h3>Show the others the QR code</h3>
+<p>Open it on a screen everyone can see, or print it. They scan it with the camera and follow the steps, about five minutes each.</p>
+<a class="btn small quiet" data-open-qr target="_blank" rel="noopener">Open the QR code</a></div></li>
+<li><span class="n" aria-hidden="true">2</span><div><h3>Put up the board</h3>
+<p>Open the board on an old tablet or phone, add it to the home screen and keep it charging.</p>
+<div class="actions"><a class="btn small quiet" data-open-board target="_blank" rel="noopener">Open the board</a><button class="btn small quiet" type="button" data-copy-board>Copy the board link</button></div></div></li>
+<li><span class="n" aria-hidden="true">3</span><div><h3>Join yourself</h3>
+<p>Scan the QR code with your own phone too. In the first week the board finds everyone's par.</p></div></li>
+</ol>
+<p style="margin-top:26px"><a class="btn" data-open-settings>Go to the settings</a></p>
+</section>
+</main>
+<footer class="foot wrap">
+<p>Lowscore is made in Bergen by Vebjørn, together with Claude, an AI from Anthropic, which has done much of the work. <a href="open.html">How it was made, and the numbers so far</a>.</p>
+<ul><li><a href="rules.html">The rules</a></li><li><a href="trmnl.html">Your own TRMNL</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
+</footer>
+<script id="ls-words" type="application/json">{"copied":"Copied","errNetwork":"Couldn't connect. Check your connection and try again.","errOther":"Something went wrong: {e}","notLive":"Lowscore isn't open to everyone yet. Try again soon.","make":"Make the board","making":"Making the board…","errName":"Give your flat a name: letters, numbers and spaces, up to 40 characters.","errAccept":"Tick the box to confirm you're 18 or older and accept the terms.","errEmail":"Check the email address, or leave the field empty.","errMany":"Many boards have been made from here today. Try again tomorrow.","errPaused":"New boards can't be made right now. Try again later."}</script>
+</body>
+</html>

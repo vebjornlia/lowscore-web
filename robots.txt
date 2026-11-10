@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /app.html
+Disallow: /flat.html
+Disallow: /en/flat.html
+Sitemap: https://vebjornlia.github.io/lowscore-web/sitemap.xml

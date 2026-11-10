@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lag en tavle · Lowscore</title>
+<meta name="description" content="Lag en Lowscore-tavle for kollektivet på et minutt. Den første sesongen er gratis.">
+<meta name="theme-color" content="#15191A">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ls-api" content="https://tpihsdosbteytykcxxce.supabase.co/functions/v1">
+<meta name="ls-region" content="">
+<meta name="ls-root" content="./">
+<link rel="canonical" href="https://vebjornlia.github.io/lowscore-web/start.html">
+<link rel="alternate" hreflang="nb" href="https://vebjornlia.github.io/lowscore-web/start.html"><link rel="alternate" hreflang="en" href="https://vebjornlia.github.io/lowscore-web/en/start.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lag en tavle · Lowscore">
+<meta property="og:description" content="Lag en Lowscore-tavle for kollektivet på et minutt. Den første sesongen er gratis.">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:image" content="https://vebjornlia.github.io/lowscore-web/img/og-nb.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css?v=a9e9626a">
+<script src="site.js?v=2fd908fb" defer></script>
+<script src="start.js?v=7d4bd5bd" defer></script>
+</head>
+<body data-page="start">
+<a class="skip" href="#main">Hopp til innholdet</a>
+<div class="langbar" id="langbar" hidden lang="en"><div class="wrap">This page is in Norwegian. <a href="en/start.html" data-setlang="en">Read it in English</a></div></div>
+<header class="top wrap">
+<a class="wordmark" href="./" aria-label="Lowscore, til forsiden">Lowscore</a>
+<nav aria-label="Språk og start"><a class="lang" href="en/start.html" hreflang="en" lang="en" data-setlang="en">English</a></nav>
+</header>
+<main id="main" class="page">
+<div id="intro">
+<h1>Lag en tavle</h1>
+<p class="lead">Det tar et minutt. Du får en lenke til tavla, en QR-kode til de andre og en innstillingsside. Den første sesongen er gratis.</p>
+<div class="box" id="not-live" hidden><p>Lowscore er ikke åpnet for alle ennå. Vil du være blant de første, <a href="pilot.html">meld deg på piloten</a>.</p></div>
+</div>
+<form id="make" class="stack" novalidate>
+<div class="field">
+<label for="name">Navn på kollektivet</label>
+<input class="input" id="name" name="name" maxlength="40" autocomplete="off" required aria-describedby="name-hint" placeholder="For eksempel Kollektivet på Møhlenpris">
+<p class="hint" id="name-hint">Står øverst på tavla. Bokstaver, tall og mellomrom, opptil 40 tegn.</p>
+</div>
+<div class="field">
+<span class="label" id="lang-label">Språk på tavla</span>
+<div class="seg" id="board-lang" role="group" aria-labelledby="lang-label"><button type="button" data-lang="nb" lang="nb">Norsk</button><button type="button" data-lang="en" lang="en">English</button></div>
+</div>
+<div class="field">
+<label for="email">E-post (valgfritt)</label>
+<input class="input" id="email" name="email" type="email" autocomplete="email" aria-describedby="email-hint">
+<p class="hint" id="email-hint">Bare for én påminnelse før gratissesongen er over. Vi kan ikke sende deg innstillingslenken på nytt, så lagre den når du får den.</p>
+</div>
+<label class="check" id="updates-row"><input type="checkbox" name="updates"><span>Send meg også nyheter om Lowscore, høyst én gang i måneden</span></label>
+<label class="check"><input type="checkbox" name="accept" required><span>Jeg er 18 år eller eldre og godtar <a href="terms.html" target="_blank">vilkårene</a>. Slik behandler vi data: <a href="privacy.html" target="_blank">personvernerklæringen</a>.</span></label>
+<div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+<p class="error" id="make-error" role="alert"></p>
+<div><button class="btn" type="submit">Lag tavla</button></div>
+</form>
+
+<section id="done" hidden>
+<h1 tabindex="-1">Tavla er klar</h1>
+<p class="lead"><b data-flat></b> har en tavle. <span data-trial>Gratis til <span data-until></span>.</span></p>
+<div class="box warn">
+<h2>Lagre innstillingslenken nå</h2>
+<p>Med den kan kollektivet endres og slettes, så hold den for deg selv. Vi lagrer den ikke, så vi kan ikke sende den på nytt. Legg den i passordbehandleren, eller send den til deg selv.</p>
+<code class="keyline" data-settings></code>
+<div class="actions"><button class="btn small" type="button" data-copy-settings>Kopier lenken</button><button class="btn small quiet" type="button" data-share-settings>Del</button></div>
+<p class="hint" style="margin-top:12px">Denne nettleseren husker den også, til du ber den glemme. Lenken til tavla og QR-koden under kan alle se: de viser bare tavla.</p>
+</div>
+<ol class="next">
+<li><span class="n" aria-hidden="true">1</span><div><h3>Vis QR-koden til de andre</h3>
+<p>Åpne den på en skjerm alle ser, eller skriv den ut. De skanner med kameraet og følger stegene, rundt fem minutter hver.</p>
+<a class="btn small quiet" data-open-qr target="_blank" rel="noopener">Åpne QR-koden</a></div></li>
+<li><span class="n" aria-hidden="true">2</span><div><h3>Sett opp tavla</h3>
+<p>Åpne tavla på et gammelt nettbrett eller en gammel mobil, legg den på hjemskjermen og la den stå i lader.</p>
+<div class="actions"><a class="btn small quiet" data-open-board target="_blank" rel="noopener">Åpne tavla</a><button class="btn small quiet" type="button" data-copy-board>Kopier lenken til tavla</button></div></div></li>
+<li><span class="n" aria-hidden="true">3</span><div><h3>Bli med selv</h3>
+<p>Skann QR-koden med din egen mobil også. Den første uka finner tavla paren til alle.</p></div></li>
+</ol>
+<p style="margin-top:26px"><a class="btn" data-open-settings>Gå til innstillingene</a></p>
+</section>
+</main>
+<footer class="foot wrap">
+<p>Lowscore er laget i Bergen av Vebjørn, sammen med Claude, en KI fra Anthropic, som har gjort mye av arbeidet. <a href="open.html">Slik ble det laget, og tallene så langt</a>.</p>
+<ul><li><a href="rules.html">Reglene</a></li><li><a href="trmnl.html">Egen TRMNL</a></li><li><a href="privacy.html">Personvern</a></li><li><a href="terms.html">Vilkår</a></li></ul>
+</footer>
+<script id="ls-words" type="application/json">{"copied":"Kopiert","errNetwork":"Fikk ikke kontakt. Sjekk nettet og prøv igjen.","errOther":"Noe gikk galt: {e}","notLive":"Lowscore er ikke åpnet for alle ennå. Prøv igjen snart.","make":"Lag tavla","making":"Lager tavla …","errName":"Gi kollektivet et navn: bokstaver, tall og mellomrom, opptil 40 tegn.","errAccept":"Kryss av for at du er 18 år og godtar vilkårene.","errEmail":"Sjekk e-postadressen, eller la feltet stå tomt.","errMany":"Det er laget mange tavler herfra i dag. Prøv igjen i morgen.","errPaused":"Det går ikke an å lage nye tavler akkurat nå. Prøv igjen senere."}</script>
+</body>
+</html>

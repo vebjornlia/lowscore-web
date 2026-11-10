@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings · Lowscore</title>
+<meta name="description" content="The board's settings: players, displays, rules and the flat pass.">
+<meta name="theme-color" content="#15191A">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ls-api" content="https://tpihsdosbteytykcxxce.supabase.co/functions/v1">
+<meta name="ls-region" content="">
+<meta name="ls-root" content="../">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Settings · Lowscore">
+<meta property="og:description" content="The board's settings: players, displays, rules and the flat pass.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://vebjornlia.github.io/lowscore-web/img/og-en.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../site.css?v=a9e9626a">
+<script src="../site.js?v=2fd908fb" defer></script>
+<script src="../flat.js?v=3d00ffb3" defer></script>
+</head>
+<body data-page="flat">
+<a class="skip" href="#main">Skip to the content</a>
+
+<header class="top wrap">
+<a class="wordmark" href="../" aria-label="Lowscore, to the front page">Lowscore</a>
+<nav aria-label="Language and start"><a class="lang" href="../flat.html" hreflang="nb" lang="nb" data-setlang="nb">Norsk</a><a class="btn small" href="start.html">Start a board</a></nav>
+</header>
+<main id="main" class="page">
+<section id="open" hidden>
+<h1>Settings</h1>
+<p class="lead">Paste the settings link you got when the board was made.</p>
+<form id="open-form" class="stack">
+<div class="field"><label for="open-key">Settings link</label>
+<input class="input" id="open-key" autocomplete="off" spellcheck="false"></div>
+<p class="error" id="open-error" role="alert"></p>
+<div><button class="btn" type="submit">Open</button></div>
+</form>
+<div id="saved-flats" hidden><h2>On this device</h2><ul class="list"></ul></div>
+<p class="hint" style="margin-top:28px">Lost the link? We don't keep it, so it can't be sent again. If you gave the flat an email address, write to us from it and we'll make new links. The link on the tablet only opens the board.</p>
+</section>
+
+<section id="loading"><p>Fetching the flat…</p></section>
+
+<section id="gone" hidden>
+<h1>The flat is deleted</h1>
+<p class="lead">Everything about the flat is deleted: the players, the numbers and the displays. Thanks for playing.</p>
+<p><a href="./">To the front page</a></p>
+</section>
+
+<section id="flat" hidden>
+<h1 data-name></h1>
+<div class="box" id="pass">
+<p class="status" data-status></p>
+<p data-detail></p>
+<p class="saved" data-paid-msg hidden role="status"></p>
+<p data-paid-docs hidden>The terms and the withdrawal form are in <a href="terms.html">the terms</a>.</p>
+<div class="actions"><button class="btn" type="button" data-buy hidden></button></div>
+<p class="hint" data-pay-off hidden>Payments aren't switched on yet. The board works as before.</p>
+<div data-confirm hidden>
+<p data-confirm-text></p>
+<p>Change your mind within 14 days and you get all your money back. You pay by card at Stripe, and we never see the card number.</p>
+<div class="actions"><button class="btn" type="button" data-go-pay>Go to payment</button><button class="btn quiet" type="button" data-cancel-pay>Cancel</button></div>
+<p class="error" data-pay-error role="alert"></p>
+</div>
+</div>
+
+<h2>The board</h2>
+<p>The board link only shows the board, so it can sit on the tablet where everyone sees it. The link to this page is a different one: keep it to yourself.</p>
+<p class="error" data-keys-warning hidden></p>
+<div class="actions">
+<a class="btn small quiet" data-board target="_blank" rel="noopener">Open the board</a>
+<button class="btn small quiet" type="button" data-copy-board>Copy the board link</button>
+<a class="btn small quiet" data-qr target="_blank" rel="noopener">The QR code for the others</a>
+</div>
+<p class="hint" style="margin-top:12px"><a data-png target="_blank" rel="noopener">The e-paper image (PNG)</a> · <button class="linkish" type="button" data-copy-settings>Copy the link to this page</button></p>
+
+<h2>Players</h2>
+<ul class="list" data-players></ul>
+<p class="empty" data-no-players hidden>Nobody has joined yet. Show the others the QR code.</p>
+<p class="error" data-players-error role="alert"></p>
+<p class="hint" style="margin-top:10px">You never see which apps anyone has used. If you remove a player, everything about them is deleted.</p>
+
+<h2>Displays</h2>
+<ul class="list" data-displays></ul>
+<p class="empty" data-no-displays hidden>No e-paper display yet.</p>
+<form id="display-form" class="stack">
+<div class="field"><label for="display-code">Add a display</label>
+<input class="input mono" id="display-code" placeholder="ABC-DEF-GHJ" maxlength="15" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="code-hint">
+<p class="hint" id="code-hint">A TRMNL that doesn't belong to a flat shows a QR code and a code on its screen. Scan the QR code with this phone, or type the code here. See <a href="trmnl.html">the TRMNL guide</a>.</p></div>
+<p class="error" data-display-error role="alert"></p>
+<p class="saved" data-display-msg role="status"></p>
+<div><button class="btn quiet" type="submit">Add the display</button></div>
+</form>
+
+<h2>Rules</h2>
+<form id="rules-form" class="stack">
+<div class="field"><span class="label" id="rules-lang-label">Language on the board</span>
+<div class="seg" id="rules-lang" role="group" aria-labelledby="rules-lang-label"><button type="button" data-lang="nb" lang="nb">Norsk</button><button type="button" data-lang="en" lang="en">English</button></div></div>
+<label class="check"><input type="checkbox" id="rules-forfeit"><span>The dishes rule: whoever is furthest over their own par does the dishes that week. If everyone is under par, nobody does.</span></label>
+<div class="field"><span class="label">The apps that count</span>
+<div class="apps" data-apps></div>
+<p class="hint">Change them before the calibration week is over if you can: par is measured with the apps that counted then.</p></div>
+<p class="error" data-rules-error role="alert"></p>
+<p class="saved" data-rules-saved role="status"></p>
+<div><button class="btn quiet" type="submit">Save the rules</button></div>
+</form>
+
+<h2>Name</h2>
+<form id="rename-form" class="stack">
+<div class="field"><label for="rename-input">The name at the top of the board</label><input class="input" id="rename-input" maxlength="40" autocomplete="off"></div>
+<p class="error" data-rename-error role="alert"></p>
+<p class="saved" data-rename-saved role="status"></p>
+<div><button class="btn quiet" type="submit">Change the name</button></div>
+</form>
+
+<h2>Email</h2>
+<form id="email-form" class="stack">
+<div class="field"><label for="email-input">Email (optional)</label><input class="input" id="email-input" type="email" autocomplete="email" aria-describedby="email-hint">
+<p class="hint" id="email-hint">Only for one reminder before the free season or the flat pass runs out. Empty the field to remove the address.</p></div>
+<label class="check"><input type="checkbox" id="email-updates"><span>Send me news about Lowscore, at most once a month</span></label>
+<p class="error" data-email-error role="alert"></p>
+<p class="saved" data-email-saved role="status"></p>
+<div><button class="btn quiet" type="submit">Save the email</button></div>
+</form>
+
+<h2>Invite and keys</h2>
+<p>New invite: the old QR code and invite link stop working. Those who have joined keep playing.</p>
+<div class="actions"><button class="btn small quiet" type="button" data-rotate-invite>Make a new invite</button></div>
+<p style="margin-top:18px">New keys: the link to this page, the board link and the invite all change, and the old ones stop working, on the tablet too. Use it if the link to this page has got out.</p>
+<div class="actions"><button class="btn small quiet" type="button" data-rotate-key>Make new keys</button></div>
+<p class="saved" data-keys-msg role="status" style="margin-top:12px"></p>
+
+<h2>Delete the flat</h2>
+<p>Everything about the flat is deleted for good: the players, the numbers and the displays. Type the flat's name to confirm.</p>
+<form id="delete-form" class="stack">
+<div class="field"><label for="delete-name">The flat's name</label><input class="input" id="delete-name" autocomplete="off"></div>
+<p class="error" data-delete-error role="alert"></p>
+<div><button class="btn" type="submit">Delete for good</button></div>
+</form>
+<p style="margin-top:36px"><button class="linkish" type="button" data-forget>Forget this flat on this device</button></p>
+</section>
+</main>
+<footer class="foot wrap">
+<p>Lowscore is made in Bergen by Vebjørn, together with Claude, an AI from Anthropic, which has done much of the work. <a href="open.html">How it was made, and the numbers so far</a>.</p>
+<ul><li><a href="rules.html">The rules</a></li><li><a href="trmnl.html">Your own TRMNL</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
+</footer>
+<script id="ls-words" type="application/json">{"copied":"Copied","errNetwork":"Couldn't connect. Check your connection and try again.","errOther":"Something went wrong: {e}","notLive":"Lowscore isn't open to everyone yet. Try again soon.","price":"NOK 149","open":"Open","errKey":"That key doesn't belong to any board. Check the link.","errKeyFormat":"Paste the whole settings link, or the 32-character key from it.","errBoardKey":"That's the board's link: it only shows the board. The settings need the settings link you got when the board was made.","keysMismatch":"This flat's keys don't belong together. Make new keys at the bottom of the page.","justNow":"just now","minAgo":"{n} min ago","hAgo":"{n} h ago","dAgo":"{n} days ago","stFounder":"Founding flat: free for good","stFounderD":"You were there from the start, so Lowscore costs you nothing.","stTrial":"Free first season: {d} days left","stTrialD":"Free until {date}. After that the flat pass costs {price} for half a year.","stEarly":"Free early access: {d} days left","stEarlyD":"Free until {date}. After that the flat pass costs {price} for half a year.","stPaid":"Flat pass until {date}","stPaidD":"{d} days left.","stOver":"The free season is over","stLapsed":"The flat pass has run out","stGraceD":"The board reminds you about the flat pass in its joke lines for {d} more days. After that the reminder stays.","stExpiredD":"The board shows a reminder about the flat pass instead of its joke lines. Everything else works as before.","buy":"Buy the flat pass, {price}","buyMore":"Buy another half-year, {price}","confirm":"Flat pass for {flat}: {price} for half a year ({days} days), for the whole flat.","startAfterFree":"The pass starts when the free time ends, {date}.","startAfterPass":"The pass is added after the one you have, from {date}.","startNow":"The pass starts at once.","payOff":"Payments aren't switched on yet. The board works as before.","paidWait":"Thank you! Waiting for Stripe to confirm…","paidOk":"Thank you! The flat pass is registered, until {date}.","paidSlow":"The payment isn't registered yet. Reload the page in a minute. If it still isn't here, write to us.","roastOn":"roast mode on","roastOff":"roast mode off","par":"par {par}","findingPar":"finding par","heard":"heard from {ago}","notHeard":"not heard from yet","remove":"Remove","removeSure":"Tap again to remove {name}","seen":"last seen {ago}","notSeen":"not seen yet","battery":"battery {v} V","displayAdded":"Added. The board comes the next time the display wakes: press its button, or wait up to five minutes.","displayRemoved":"Removed. The next time it wakes it shows a new code, so it can be added again here or by another flat.","addReady":"The code from the display is filled in. Tap “Add the display”.","addOpenFirst":"To add the display, open your flat here first: paste the settings link you got when you made the board.","displaySameMac":"Added. {names} has the same address: if that was this display before it was set up again, remove the old entry. The board comes the next time the display wakes.","errDisplaysFullOld":"A flat can have four displays. One of them has the same address as this one: remove the old entry first.","errCode":"Type the code as the display shows it: nine letters and digits, like ABC-DEF-GHJ.","errCodeUnknown":"No display shows that code. Check the characters, or wait until the display shows its code (it asks every five minutes).","errDisplaysFull":"A flat can have four displays. Remove one first.","errTooMany":"Too many tries. Wait an hour and try again.","errNoApps":"Choose at least one app.","saved":"Saved.","errName":"The name can have letters, numbers and spaces, up to 40 characters.","errEmail":"Check the email address, or empty the field.","sure":"Tap again to confirm","newInvite":"New invite made. Show the new QR code to anyone who hasn't joined yet.","newKey":"New keys made. The links above are updated: open the board again on the tablet, and save the new link to this page.","errConfirm":"Type the flat's name exactly as it shows at the top."}</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your own TRMNL · Lowscore</title>
+<meta name="description" content="How to show the Lowscore board on a TRMNL e-paper display.">
+<meta name="theme-color" content="#15191A">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ls-api" content="https://tpihsdosbteytykcxxce.supabase.co/functions/v1">
+<meta name="ls-region" content="">
+<meta name="ls-root" content="../">
+<link rel="canonical" href="https://vebjornlia.github.io/lowscore-web/en/trmnl.html">
+<link rel="alternate" hreflang="nb" href="https://vebjornlia.github.io/lowscore-web/trmnl.html"><link rel="alternate" hreflang="en" href="https://vebjornlia.github.io/lowscore-web/en/trmnl.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your own TRMNL · Lowscore">
+<meta property="og:description" content="How to show the Lowscore board on a TRMNL e-paper display.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://vebjornlia.github.io/lowscore-web/img/og-en.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../site.css?v=a9e9626a">
+<script src="../site.js?v=2fd908fb" defer></script>
+</head>
+<body data-page="trmnl">
+<a class="skip" href="#main">Skip to the content</a>
+
+<header class="top wrap">
+<a class="wordmark" href="../" aria-label="Lowscore, to the front page">Lowscore</a>
+<nav aria-label="Language and start"><a class="lang" href="../trmnl.html" hreflang="nb" lang="nb" data-setlang="nb">Norsk</a><a class="btn small" href="start.html">Start a board</a></nav>
+</header>
+<main id="main" class="page">
+<h1>Your own TRMNL</h1>
+<p class="lead">If you have a TRMNL (7.5 inch) or the DIY kit with the TRMNL firmware, it can show the board. It fetches a new picture every 15 minutes from 07:00 to 24:00 and sleeps at night, so the battery lasts longer.</p>
+<ol class="next">
+<li><span class="n" aria-hidden="true">1</span><div><h3>Make a board</h3><p>If you don't have one yet, <a href="start.html">make one</a>. If you do, open its settings page.</p></div></li>
+<li><span class="n" aria-hidden="true">2</span><div><h3>Install the TRMNL firmware</h3><p>Use TRMNL's web flasher, as described in <a href="https://docs.trmnl.com/go/diy/byod" rel="noopener">TRMNL's guide for your own device</a>. Lowscore is built for firmware version 1.8.17.</p></div></li>
+<li><span class="n" aria-hidden="true">3</span><div><h3>Point the display here</h3><p>In the display's Wi-Fi setup you can change the server address (<a href="https://docs.trmnl.com/go/diy/byod-s" rel="noopener">how</a>). Use this one:</p><code class="keyline" id="server">https://tpihsdosbteytykcxxce.supabase.co/functions/v1/trmnl</code><button class="btn small quiet" type="button" onclick="LS.copy(document.getElementById('server').textContent,this)">Copy the address</button></div></li>
+<li><span class="n" aria-hidden="true">4</span><div><h3>Add the display</h3><p>The display shows a QR code and a nine-character code, like ABC-DEF-GHJ. Scan the QR code with the phone you manage the board from and tap “Add the display”. Or type the code under Displays on the settings page. The board comes the next time the display wakes: press its button, or wait up to five minutes.</p></div></li>
+</ol>
+<h2>Good to know</h2>
+<ul>
+<li>The display gets its own key when it connects. Only someone who can see the code on its screen can add it to a flat: the address it shows in its Wi-Fi setup isn't enough.</li>
+<li>Remove it on the settings page and it shows a new code the next time it wakes.</li>
+<li>If the display gets stuck, hold its button for 15 seconds. Then set up its Wi-Fi and server address again. It shows a new code: type it under Displays, then remove its old entry.</li>
+<li>Lowscore never sends commands that wipe the display's Wi-Fi setup.</li>
+<li>TRMNL is a separate company. Lowscore isn't made by them and has no deal with them.</li>
+</ul>
+</main>
+<footer class="foot wrap">
+<p>Lowscore is made in Bergen by Vebjørn, together with Claude, an AI from Anthropic, which has done much of the work. <a href="open.html">How it was made, and the numbers so far</a>.</p>
+<ul><li><a href="rules.html">The rules</a></li><li><a href="trmnl.html">Your own TRMNL</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
+</footer>
+<script id="ls-words" type="application/json">{"copied":"Copied","errNetwork":"Couldn't connect. Check your connection and try again.","errOther":"Something went wrong: {e}","notLive":"Lowscore isn't open to everyone yet. Try again soon."}</script>
+</body>
+</html>

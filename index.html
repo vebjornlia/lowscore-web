@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<script>if(/^#(k=|join|invite|c=)/.test(location.hash))location.replace("app.html"+location.hash)</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lowscore: hvem i kollektivet scroller minst?</title>
+<meta name="description" content="En resultattavle på kjøkkenet som rangerer kollektivet etter scrolletid, mot hver persons egen normal. Den første sesongen er gratis.">
+<meta name="theme-color" content="#15191A">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ls-api" content="https://tpihsdosbteytykcxxce.supabase.co/functions/v1">
+<meta name="ls-region" content="">
+<meta name="ls-root" content="./">
+<link rel="canonical" href="https://vebjornlia.github.io/lowscore-web/">
+<link rel="alternate" hreflang="nb" href="https://vebjornlia.github.io/lowscore-web/"><link rel="alternate" hreflang="en" href="https://vebjornlia.github.io/lowscore-web/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lowscore: hvem i kollektivet scroller minst?">
+<meta property="og:description" content="En resultattavle på kjøkkenet som rangerer kollektivet etter scrolletid, mot hver persons egen normal. Den første sesongen er gratis.">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:image" content="https://vebjornlia.github.io/lowscore-web/img/og-nb.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css?v=a9e9626a">
+<script src="site.js?v=2fd908fb" defer></script>
+</head>
+<body data-page="home">
+<a class="skip" href="#main">Hopp til innholdet</a>
+<div class="langbar" id="langbar" hidden lang="en"><div class="wrap">This page is in Norwegian. <a href="en/" data-setlang="en">Read it in English</a></div></div>
+<header class="top wrap">
+<a class="wordmark" href="./" aria-label="Lowscore, til forsiden">Lowscore</a>
+<nav aria-label="Språk og start"><a class="lang" href="en/" hreflang="en" lang="en" data-setlang="en">English</a><a class="btn small" href="start.html">Lag en tavle</a></nav>
+</header>
+<main id="main">
+<section class="hero wrap">
+<h1 class="shout">Hvem i kollektivet scroller <span class="ring">minst?<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M250 13C160 2 30 6 10 46C-4 80 90 98 170 95C250 92 300 74 294 44C288 16 230 4 168 8"/></svg></span></h1>
+<div class="hero-grid">
+<div>
+<p class="lead">Lowscore er en resultattavle for kjøkkenet. Mobilene sender scrolletiden av seg selv, og den som kutter mest mot sin egen normal, vinner uka.</p>
+<div class="cta">
+<a class="btn" href="start.html">Lag en tavle for kollektivet</a>
+<p class="fine">Den første sesongen er gratis. Ingen app på iPhone, ingen konto.</p>
+</div>
+<p class="aside-link"><a href="pilot.html">Eller meld kollektivet på piloten med e-papirtavle i Bergen</a></p>
+</div>
+<figure class="hero-fig">
+<div class="tablet">
+<div class="board">
+<div class="b-head"><b>Lowscore</b><span>Uke 43, tor. 22. okt.</span></div>
+<div class="b-sub"><span>Scrolletid · lavest % mot din egen par vinner</span><span>Denne uka</span></div>
+<ol class="b-rows">
+<li><span>1</span><span>EMIL</span><span class="s u">−21<small>%</small></span></li>
+<li><span>2</span><span>MAJA</span><span class="s u">−18<small>%</small></span></li>
+<li><span>3</span><span>FRIDA</span><span class="s u">−15<small>%</small></span></li>
+<li><span>4</span><span>JONAS</span><span class="s u">−10<small>%</small></span></li>
+<li><span>5</span><span>SINDRE</span><span class="s">+4<small>%</small></span></li>
+<li><span>6</span><span>ODA</span><span class="s">+6<small>%</small></span></li>
+</ol>
+<div class="b-now"><b>Nå</b><span>EMIL · TikTok 23 min</span></div>
+<p class="b-lines">JONAS er 10 % under par denne uka.<br>SINDRE: Twitch × 3 kokte egg.</p>
+<div class="b-foot"><span>Felles −9 % mot par · 4 t mindre scrolling denne sesongen</span><span>Oppdatert 14:30</span></div>
+</div>
+</div>
+<figcaption>Eksempeltavle på et gammelt nettbrett. Navn og tall er oppdiktet.</figcaption>
+</figure>
+</div>
+</section>
+
+<section class="section wrap" aria-labelledby="how">
+<h2 id="how">Slik virker det</h2>
+<ol class="steps">
+<li><span class="n" aria-hidden="true">1</span><div><h3>Lag tavla</h3><p>Gi kollektivet et navn. Du får en lenke til tavla og en QR-kode som de andre skanner.</p></div></li>
+<li><span class="n" aria-hidden="true">2</span><div><h3>Koble til mobilene</h3><p>På iPhone sier en snarvei fra når Instagram, TikTok og de andre åpnes og lukkes. På Android gjør en liten app det. Fem minutter, én gang per mobil.</p></div></li>
+<li><span class="n" aria-hidden="true">3</span><div><h3>Finn paren</h3><p>Den første uka måler tavla hvor mye hver av dere vanligvis scroller. Det blir paren din.</p></div></li>
+<li><span class="n" aria-hidden="true">4</span><div><h3>Lavest prosent vinner</h3><p>Hver uke rangeres alle etter hvor langt under eller over sin egen par de ligger. Mandag kåres ukas vinner.</p></div></li>
+</ol>
+</section>
+
+<section class="section wrap" aria-labelledby="par">
+<h2 id="par">Du konkurrerer mot deg selv</h2>
+<p class="intro">Den som scroller mest fra før, er ikke sjanseløs. Tavla teller prosent mot din egen par, ikke minutter.</p>
+<table class="par">
+<caption>Timer og minutter per dag. OLA scroller minst, men SIRI har kuttet mest, så SIRI leder.</caption>
+<thead><tr><th scope="col"><span class="hp">Spiller</span></th><th scope="col">Paren</th><th scope="col">Denne uka</th><th scope="col">Resultat</th></tr></thead>
+<tbody>
+<tr><th scope="row">SIRI</th><td>2:40</td><td>2:13</td><td class="u">−17 %</td></tr>
+<tr><th scope="row">OLA</th><td>2:13</td><td>1:58</td><td class="u">−11 %</td></tr>
+</tbody>
+</table>
+<p>En dag mobilen ikke sier fra, teller som par pluss 20 %. Hver uke teller den verste dagen over par bare som par, så én lang togtur ødelegger ikke uka. <a href="rules.html">Alle reglene</a></p>
+</section>
+
+<section class="section wrap" aria-labelledby="sees">
+<h2 id="sees">Hva tavla ser, og hva den aldri ser</h2>
+<div class="cols">
+<div><h3>Tavla ser</h3><ul>
+<li>Minuttene dine per dag i appene kollektivet har valgt. Som standard Instagram, TikTok, YouTube, Snapchat, Facebook, X, Reddit og Twitch.</li>
+<li>Bare hvis du slår på roast-modus: minutter per app, og hvilken av dem du er i akkurat nå. Du velger selv, og den er av til du slår den på.</li>
+</ul></div>
+<div><h3>Tavla ser aldri</h3><ul>
+<li>Meldinger, hva du ser på, bilder, nettsider, kontakter eller hvor du er.</li>
+<li>Andre apper, eller hvor lenge mobilen er i bruk totalt.</li>
+</ul></div>
+</div>
+<p style="margin-top:22px">Gå ut av spillet når du vil, så slettes alt om deg med en gang. Dataene ligger i en database i Stockholm, og vi selger ingenting til noen. <a href="privacy.html">Personvernerklæringen</a></p>
+</section>
+
+<section class="section wrap" aria-labelledby="ways">
+<div class="ways">
+<div>
+<h2 id="ways" class="h2">Tavla kan henge på to måter</h2>
+<div class="way"><h3>Et gammelt nettbrett eller en gammel mobil</h3>
+<p>Åpne lenken til tavla, legg den på hjemskjermen og la den stå i lader. Den oppdateres hvert minutt. Gratis, og klar i dag.</p></div>
+<div class="way"><h3>E-papirtavla</h3>
+<p>En e-papirskjerm som går på batteri, henger på kjøleskapet med magneter og oppdateres hvert kvarter. Fem kollektiv i Bergen får låne en i piloten i januar.</p></div>
+<p class="fine">Har du allerede en TRMNL? <a href="trmnl.html">Den kan vise tavla nå</a>.</p>
+</div>
+<figure class="epaper">
+<div class="bezel"><div class="screen"><img src="img/epaper-nb.png" width="480" height="800" alt="E-papirtavla i svart og hvitt: EMIL leder med 21 prosent under par, foran MAJA, FRIDA og JONAS." decoding="async"></div></div>
+<figcaption>E-papirtavla slik serveren tegner den: svart og hvitt, 480 × 800 punkter. Navn og tall er oppdiktet.</figcaption>
+</figure>
+</div>
+</section>
+
+<section class="section wrap" aria-labelledby="price">
+<h2 id="price" class="h2">Hva det koster</h2>
+<p class="price">Den første sesongen er gratis. Etter det koster et flatpass 149 kr for et halvt år, for hele kollektivet.</p>
+<p>Den første sesongen er kalibreringsuka og fire uker med konkurranse. Er dere fem, blir flatpasset under 5 kroner i måneden per person.</p>
+<p>Passet fornyes ikke av seg selv. Når det går ut, sier tavla fra, og den som satte den opp, kan kjøpe et nytt. Angrer du innen 14 dager, får du alle pengene tilbake.</p>
+</section>
+
+<section class="section wrap" aria-labelledby="pilot">
+<h2 id="pilot">Piloten i Bergen</h2>
+<p class="intro">I januar 2027 låner fem kollektiv i Bergen hver sin e-papirtavle i fire uker, gratis. Vi kommer og setter den opp, og henter den igjen etterpå. Alle i kollektivet må ha lyst til å være med.</p>
+<a class="btn quiet" href="pilot.html">Meld på kollektivet</a>
+</section>
+
+<section class="section wrap" aria-labelledby="faq">
+<h2 id="faq">Spørsmål</h2>
+<div class="faq">
+<details><summary>Må alle i kollektivet være med?</summary><p>Nei. Bare de som blir med, står på tavla. To er nok til å starte.</p></details>
+<details><summary>Trenger jeg en app?</summary><p>På iPhone nei: du bruker Snarveier, som allerede er på telefonen. På Android installerer du en liten app fra lenken du får når du blir med.</p></details>
+<details><summary>Kan de andre se hva jeg gjør på mobilen?</summary><p>Nei. Tavla får bare minutter i appene på lista. Med roast-modus av viser den bare summen din, ikke hvilke apper minuttene kom fra.</p></details>
+<details><summary>Blokkerer Lowscore apper?</summary><p>Nei. Lowscore teller bare. Resten er opp til dere.</p></details>
+<details><summary>Hva skjer når gratissesongen er over?</summary><p>Tavla fortsetter å vise stillingen, men de to morolinjene nederst blir byttet ut med en påminnelse om flatpasset. Den som satte opp tavla, kjøper det på innstillingssiden.</p></details>
+<details><summary>Hvem står bak?</summary><p>Vebjørn, en student i Bergen. Mye av arbeidet, fra koden til disse tekstene, er gjort av Claude, en KI fra Anthropic, mens Vebjørn har bestemt, testet og bygget. Det er en del av poenget: vi viser åpent hvor langt det går. <a href="open.html">Slik ble Lowscore laget</a>.</p></details>
+</div>
+</section>
+
+<div class="wrap">
+<section class="band" aria-labelledby="ready">
+<div><h2 id="ready">Klar for uke én?</h2><p>Lag tavla nå. Den første sesongen er gratis.</p></div>
+<a class="btn" href="start.html">Lag en tavle</a>
+</section>
+</div>
+</main>
+<footer class="foot wrap">
+<p>Lowscore er laget i Bergen av Vebjørn, sammen med Claude, en KI fra Anthropic, som har gjort mye av arbeidet. <a href="open.html">Slik ble det laget, og tallene så langt</a>.</p>
+<ul><li><a href="rules.html">Reglene</a></li><li><a href="trmnl.html">Egen TRMNL</a></li><li><a href="privacy.html">Personvern</a></li><li><a href="terms.html">Vilkår</a></li></ul>
+</footer>
+
+</body>
+</html>

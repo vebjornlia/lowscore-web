@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Innstillinger · Lowscore</title>
+<meta name="description" content="Innstillingene til tavla: spillere, skjermer, regler og flatpass.">
+<meta name="theme-color" content="#15191A">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ls-api" content="https://tpihsdosbteytykcxxce.supabase.co/functions/v1">
+<meta name="ls-region" content="">
+<meta name="ls-root" content="./">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Innstillinger · Lowscore">
+<meta property="og:description" content="Innstillingene til tavla: spillere, skjermer, regler og flatpass.">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:image" content="https://vebjornlia.github.io/lowscore-web/img/og-nb.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css?v=a9e9626a">
+<script src="site.js?v=2fd908fb" defer></script>
+<script src="flat.js?v=3d00ffb3" defer></script>
+</head>
+<body data-page="flat">
+<a class="skip" href="#main">Hopp til innholdet</a>
+<div class="langbar" id="langbar" hidden lang="en"><div class="wrap">This page is in Norwegian. <a href="en/flat.html" data-setlang="en">Read it in English</a></div></div>
+<header class="top wrap">
+<a class="wordmark" href="./" aria-label="Lowscore, til forsiden">Lowscore</a>
+<nav aria-label="Språk og start"><a class="lang" href="en/flat.html" hreflang="en" lang="en" data-setlang="en">English</a><a class="btn small" href="start.html">Lag en tavle</a></nav>
+</header>
+<main id="main" class="page">
+<section id="open" hidden>
+<h1>Innstillinger</h1>
+<p class="lead">Lim inn innstillingslenken du fikk da tavla ble laget.</p>
+<form id="open-form" class="stack">
+<div class="field"><label for="open-key">Innstillingslenke</label>
+<input class="input" id="open-key" autocomplete="off" spellcheck="false"></div>
+<p class="error" id="open-error" role="alert"></p>
+<div><button class="btn" type="submit">Åpne</button></div>
+</form>
+<div id="saved-flats" hidden><h2>På denne enheten</h2><ul class="list"></ul></div>
+<p class="hint" style="margin-top:28px">Mistet lenken? Vi lagrer den ikke, så den kan ikke sendes på nytt. Ga du kollektivet en e-postadresse, skriv til oss fra den, så lager vi nye lenker. Lenken på nettbrettet åpner bare tavla.</p>
+</section>
+
+<section id="loading"><p>Henter kollektivet …</p></section>
+
+<section id="gone" hidden>
+<h1>Kollektivet er slettet</h1>
+<p class="lead">Alt om kollektivet er slettet: spillerne, tallene og skjermene. Takk for at dere spilte.</p>
+<p><a href="./">Til forsiden</a></p>
+</section>
+
+<section id="flat" hidden>
+<h1 data-name></h1>
+<div class="box" id="pass">
+<p class="status" data-status></p>
+<p data-detail></p>
+<p class="saved" data-paid-msg hidden role="status"></p>
+<p data-paid-docs hidden>Vilkårene og angreskjemaet står i <a href="terms.html">vilkårene</a>.</p>
+<div class="actions"><button class="btn" type="button" data-buy hidden></button></div>
+<p class="hint" data-pay-off hidden>Betaling er ikke slått på ennå. Tavla virker som før.</p>
+<div data-confirm hidden>
+<p data-confirm-text></p>
+<p>Angrer du innen 14 dager, får du alle pengene tilbake. Du betaler med kort hos Stripe, og vi ser aldri kortnummeret.</p>
+<div class="actions"><button class="btn" type="button" data-go-pay>Gå til betaling</button><button class="btn quiet" type="button" data-cancel-pay>Avbryt</button></div>
+<p class="error" data-pay-error role="alert"></p>
+</div>
+</div>
+
+<h2>Tavla</h2>
+<p>Lenken til tavla viser bare tavla, så den kan stå på nettbrettet der alle ser den. Lenken til denne siden er en annen: hold den for deg selv.</p>
+<p class="error" data-keys-warning hidden></p>
+<div class="actions">
+<a class="btn small quiet" data-board target="_blank" rel="noopener">Åpne tavla</a>
+<button class="btn small quiet" type="button" data-copy-board>Kopier lenken til tavla</button>
+<a class="btn small quiet" data-qr target="_blank" rel="noopener">QR-koden til de andre</a>
+</div>
+<p class="hint" style="margin-top:12px"><a data-png target="_blank" rel="noopener">Bildet til e-papir (PNG)</a> · <button class="linkish" type="button" data-copy-settings>Kopier lenken til denne siden</button></p>
+
+<h2>Spillere</h2>
+<ul class="list" data-players></ul>
+<p class="empty" data-no-players hidden>Ingen er med ennå. Vis QR-koden til de andre.</p>
+<p class="error" data-players-error role="alert"></p>
+<p class="hint" style="margin-top:10px">Du ser aldri hvilke apper noen har brukt. Fjerner du en spiller, slettes alt om hen.</p>
+
+<h2>Skjermer</h2>
+<ul class="list" data-displays></ul>
+<p class="empty" data-no-displays hidden>Ingen e-papirskjerm ennå.</p>
+<form id="display-form" class="stack">
+<div class="field"><label for="display-code">Legg til en skjerm</label>
+<input class="input mono" id="display-code" placeholder="ABC-DEF-GHJ" maxlength="15" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="code-hint">
+<p class="hint" id="code-hint">En TRMNL som ikke hører til et kollektiv, viser en QR-kode og en kode på skjermen. Skann QR-koden med denne mobilen, eller skriv koden her. Se <a href="trmnl.html">TRMNL-guiden</a>.</p></div>
+<p class="error" data-display-error role="alert"></p>
+<p class="saved" data-display-msg role="status"></p>
+<div><button class="btn quiet" type="submit">Legg til skjermen</button></div>
+</form>
+
+<h2>Regler</h2>
+<form id="rules-form" class="stack">
+<div class="field"><span class="label" id="rules-lang-label">Språk på tavla</span>
+<div class="seg" id="rules-lang" role="group" aria-labelledby="rules-lang-label"><button type="button" data-lang="nb" lang="nb">Norsk</button><button type="button" data-lang="en" lang="en">English</button></div></div>
+<label class="check"><input type="checkbox" id="rules-forfeit"><span>Oppvask-regelen: den som ligger lengst over sin egen par, tar oppvasken den uka. Er alle under par, slipper alle.</span></label>
+<div class="field"><span class="label">Appene som teller</span>
+<div class="apps" data-apps></div>
+<p class="hint">Bytt helst før kalibreringsuka er over: paren er målt med appene som gjaldt da.</p></div>
+<p class="error" data-rules-error role="alert"></p>
+<p class="saved" data-rules-saved role="status"></p>
+<div><button class="btn quiet" type="submit">Lagre reglene</button></div>
+</form>
+
+<h2>Navn</h2>
+<form id="rename-form" class="stack">
+<div class="field"><label for="rename-input">Navnet øverst på tavla</label><input class="input" id="rename-input" maxlength="40" autocomplete="off"></div>
+<p class="error" data-rename-error role="alert"></p>
+<p class="saved" data-rename-saved role="status"></p>
+<div><button class="btn quiet" type="submit">Endre navnet</button></div>
+</form>
+
+<h2>E-post</h2>
+<form id="email-form" class="stack">
+<div class="field"><label for="email-input">E-post (valgfritt)</label><input class="input" id="email-input" type="email" autocomplete="email" aria-describedby="email-hint">
+<p class="hint" id="email-hint">Bare for én påminnelse før gratissesongen eller flatpasset går ut. Tøm feltet for å fjerne adressen.</p></div>
+<label class="check"><input type="checkbox" id="email-updates"><span>Send meg nyheter om Lowscore, høyst én gang i måneden</span></label>
+<p class="error" data-email-error role="alert"></p>
+<p class="saved" data-email-saved role="status"></p>
+<div><button class="btn quiet" type="submit">Lagre e-posten</button></div>
+</form>
+
+<h2>Invitasjon og nøkler</h2>
+<p>Ny invitasjon: den gamle QR-koden og invitasjonslenken slutter å virke. De som er med, fortsetter.</p>
+<div class="actions"><button class="btn small quiet" type="button" data-rotate-invite>Lag ny invitasjon</button></div>
+<p style="margin-top:18px">Nye nøkler: lenken til denne siden, lenken til tavla og invitasjonen byttes, og de gamle slutter å virke, også på nettbrettet. Bruk det hvis lenken til denne siden har kommet på avveie.</p>
+<div class="actions"><button class="btn small quiet" type="button" data-rotate-key>Lag nye nøkler</button></div>
+<p class="saved" data-keys-msg role="status" style="margin-top:12px"></p>
+
+<h2>Slett kollektivet</h2>
+<p>Alt om kollektivet slettes for godt: spillerne, tallene og skjermene. Skriv navnet på kollektivet for å bekrefte.</p>
+<form id="delete-form" class="stack">
+<div class="field"><label for="delete-name">Navnet på kollektivet</label><input class="input" id="delete-name" autocomplete="off"></div>
+<p class="error" data-delete-error role="alert"></p>
+<div><button class="btn" type="submit">Slett for godt</button></div>
+</form>
+<p style="margin-top:36px"><button class="linkish" type="button" data-forget>Glem kollektivet på denne enheten</button></p>
+</section>
+</main>
+<footer class="foot wrap">
+<p>Lowscore er laget i Bergen av Vebjørn, sammen med Claude, en KI fra Anthropic, som har gjort mye av arbeidet. <a href="open.html">Slik ble det laget, og tallene så langt</a>.</p>
+<ul><li><a href="rules.html">Reglene</a></li><li><a href="trmnl.html">Egen TRMNL</a></li><li><a href="privacy.html">Personvern</a></li><li><a href="terms.html">Vilkår</a></li></ul>
+</footer>
+<script id="ls-words" type="application/json">{"copied":"Kopiert","errNetwork":"Fikk ikke kontakt. Sjekk nettet og prøv igjen.","errOther":"Noe gikk galt: {e}","notLive":"Lowscore er ikke åpnet for alle ennå. Prøv igjen snart.","price":"149 kr","open":"Åpne","errKey":"Den nøkkelen hører ikke til noen tavle. Sjekk lenken.","errKeyFormat":"Lim inn hele innstillingslenken, eller nøkkelen på 32 tegn fra den.","errBoardKey":"Det er lenken til tavla: den viser bare tavla. Innstillingene trenger innstillingslenken du fikk da tavla ble laget.","keysMismatch":"Nøklene til kollektivet passer ikke sammen. Lag nye nøkler nederst på siden.","justNow":"nå nettopp","minAgo":"for {n} min siden","hAgo":"for {n} t siden","dAgo":"for {n} dager siden","stFounder":"Grunnleggerkollektiv: gratis for godt","stFounderD":"Dere var med fra starten, så Lowscore koster ingenting for dere.","stTrial":"Gratis første sesong: {d} dager igjen","stTrialD":"Gratis til {date}. Etter det koster flatpasset {price} for et halvt år.","stEarly":"Gratis tidlig tilgang: {d} dager igjen","stEarlyD":"Gratis til {date}. Etter det koster flatpasset {price} for et halvt år.","stPaid":"Flatpass til {date}","stPaidD":"{d} dager igjen.","stOver":"Gratissesongen er over","stLapsed":"Flatpasset har gått ut","stGraceD":"Tavla minner om flatpasset i morolinjene i {d} dager til. Etter det står påminnelsen der fast.","stExpiredD":"Tavla viser en påminnelse om flatpasset i stedet for morolinjene. Alt annet virker som før.","buy":"Kjøp flatpass, {price}","buyMore":"Kjøp et halvår til, {price}","confirm":"Flatpass for {flat}: {price} for et halvt år ({days} dager), for hele kollektivet.","startAfterFree":"Passet starter når gratistiden er over, {date}.","startAfterPass":"Passet legges til etter det dere har, fra {date}.","startNow":"Passet starter med en gang.","payOff":"Betaling er ikke slått på ennå. Tavla virker som før.","paidWait":"Takk! Venter på bekreftelsen fra Stripe …","paidOk":"Takk! Flatpasset er registrert, til {date}.","paidSlow":"Betalingen er ikke registrert ennå. Last siden på nytt om et minutt. Står det fortsatt ikke her, skriv til oss.","roastOn":"roast-modus på","roastOff":"roast-modus av","par":"par {par}","findingPar":"finner paren","heard":"hørt fra {ago}","notHeard":"ikke hørt fra ennå","remove":"Fjern","removeSure":"Trykk igjen for å fjerne {name}","seen":"sist sett {ago}","notSeen":"ikke sett ennå","battery":"batteri {v} V","displayAdded":"Lagt til. Tavla kommer neste gang skjermen våkner: trykk på knappen, eller vent opptil fem minutter.","displayRemoved":"Fjernet. Neste gang den våkner, viser den en ny kode, så den kan legges til igjen her eller hos et annet kollektiv.","addReady":"Koden fra skjermen er fylt inn. Trykk «Legg til skjermen».","addOpenFirst":"For å legge til skjermen åpner du kollektivet ditt her først: lim inn innstillingslenken du fikk da du lagde tavla.","displaySameMac":"Lagt til. {names} har samme adresse: var det denne skjermen før den ble satt opp på nytt, fjern den gamle oppføringen. Tavla kommer neste gang skjermen våkner.","errDisplaysFullOld":"Et kollektiv kan ha fire skjermer. En av dem har samme adresse som denne: fjern den gamle oppføringen først.","errCode":"Skriv koden slik skjermen viser den: ni bokstaver og tall, for eksempel ABC-DEF-GHJ.","errCodeUnknown":"Ingen skjerm viser den koden. Sjekk tegnene, eller vent til skjermen viser koden sin (den spør hvert femte minutt).","errDisplaysFull":"Et kollektiv kan ha fire skjermer. Fjern en først.","errTooMany":"For mange forsøk. Vent en time og prøv igjen.","errNoApps":"Velg minst én app.","saved":"Lagret.","errName":"Navnet kan ha bokstaver, tall og mellomrom, opptil 40 tegn.","errEmail":"Sjekk e-postadressen, eller tøm feltet.","sure":"Trykk igjen for å bekrefte","newInvite":"Ny invitasjon laget. Vis den nye QR-koden til dem som ikke er med ennå.","newKey":"Nye nøkler laget. Lenkene over er oppdatert: åpne tavla på nytt på nettbrettet, og lagre den nye lenken til denne siden.","errConfirm":"Skriv navnet på kollektivet nøyaktig slik det står øverst."}</script>
+</body>
+</html>

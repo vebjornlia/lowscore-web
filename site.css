@@ -1,0 +1,245 @@
+/* Lowscore website. The product's own look: e-paper paper and ink, Barlow Condensed for anything
+   the board would say, Atkinson Hyperlegible for reading. Red means under par, and little else.
+   Fonts are self-hosted (SIL OFL 1.1); nothing is fetched from anyone else. */
+
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/barlow-condensed-600.woff2") format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/barlow-condensed-700.woff2") format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/atkinson-hyperlegible-700.woff2") format("woff2")}
+
+:root{
+  --paper:#EEF0EB;      /* e-ink grey-green page */
+  --sheet:#F8F9F6;      /* raised surfaces: fields, boxes */
+  --ink:#15191A;
+  --ink-2:#4C5552;      /* secondary text, 7:1 on paper */
+  --rule:#CBD0CA;
+  --frame:#1E2221;      /* the board's printed bezel, the tablet */
+  --epd:#E6E8E2;        /* e-paper white */
+  --under:#C21F32;      /* leaderboard red: under par */
+  --under-inv:#FF6B7A;  /* the same red on ink */
+  --good:#2E6B4E;
+  --todo:#FFE58A;       /* unfilled placeholders in drafts */
+  --display:"Barlow Condensed","Arial Narrow","Roboto Condensed",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gutter:clamp(16px,4.5vw,48px);
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--body);font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+img,svg{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.17em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--under);outline-offset:3px;border-radius:2px}
+p{margin:0 0 1em;max-width:36em}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;text-wrap:balance}
+[hidden]{display:none!important}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-10000px;top:0}
+.skip:focus{left:12px;top:12px;z-index:20;background:var(--ink);color:var(--sheet);padding:10px 14px;border-radius:8px}
+
+/* ---- header and footer -------------------------------------------------------------------- */
+
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding-block:16px 13px;border-bottom:3px solid var(--ink)}
+.wordmark{font:700 clamp(27px,3.2vw,34px)/1 var(--display);text-transform:uppercase;letter-spacing:.01em;text-decoration:none}
+.top nav{display:flex;align-items:center;gap:18px}
+.top .lang{font:600 18px/1 var(--display);letter-spacing:.01em}
+.langbar{background:var(--ink);color:var(--sheet);font-size:15px;padding:9px 0}
+.langbar a{font-weight:700}
+
+.foot{display:grid;gap:12px;padding-block:26px 44px;border-top:3px solid var(--ink);font-size:15px;color:var(--ink-2)}
+.foot p{margin:0;max-width:52em}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+.foot a{color:var(--ink)}
+
+/* ---- buttons ------------------------------------------------------------------------------ */
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 24px;border:0;border-radius:10px;
+  background:var(--ink);color:var(--sheet);font:700 22px/1.05 var(--display);letter-spacing:.01em;text-align:center;text-decoration:none;cursor:pointer}
+.btn:hover{background:#000}
+.btn[disabled]{opacity:.5;cursor:default}
+.btn.small{min-height:40px;padding:8px 15px;font-size:18px;border-radius:8px}
+.btn.quiet{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.quiet:hover{background:var(--sheet)}
+.linkish{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.17em;cursor:pointer}
+.linkish.danger{color:var(--under);font-weight:700}
+.linkish:disabled{opacity:.6;cursor:default}
+
+/* ---- the front page ----------------------------------------------------------------------- */
+
+.hero{padding-block:clamp(26px,5vw,58px) clamp(44px,7vw,92px)}
+.shout{font-size:clamp(52px,10.4vw,140px);line-height:.88;text-transform:uppercase;letter-spacing:-.004em;max-width:11.5em}
+/* the scorekeeper's red pen around the word that wins */
+.ring{position:relative;white-space:nowrap}
+.ring svg{position:absolute;left:-7%;top:-5%;width:114%;height:114%;overflow:visible;pointer-events:none}
+.ring path{fill:none;stroke:var(--under);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:ring 1s cubic-bezier(.55,.05,.25,1) .45s forwards}
+@keyframes ring{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.ring path{animation:none;stroke-dashoffset:0}}
+
+.hero-grid{display:grid;gap:36px 64px;margin-top:clamp(26px,4vw,48px);align-items:start}
+@media (min-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(330px,440px)}}
+.lead{font-size:clamp(19px,1.75vw,22.5px);line-height:1.45;max-width:30em;margin:0 0 28px}
+.cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.fine{font-size:15px;color:var(--ink-2);margin:0}
+.aside-link{margin-top:22px;font-weight:700}
+
+/* the sample board: the web board on a tablet, as the product draws it */
+.hero-fig{margin:0}
+.hero-fig figcaption{color:var(--ink-2);font-size:14px;margin-top:14px}
+.tablet{background:var(--frame);border-radius:30px;padding:16px 13px 18px;box-shadow:0 34px 60px -30px rgba(21,25,26,.6)}
+.board{background:var(--paper);border-radius:7px;overflow:hidden;font-family:var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.b-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;background:var(--ink);color:var(--sheet);padding:11px 16px 9px}
+.b-head b{font-size:27px;line-height:1}
+.b-head span{font-weight:600;font-size:15px}
+.b-sub{display:flex;justify-content:space-between;gap:8px;padding:6px 16px;font-weight:600;font-size:12.5px;color:var(--ink-2)}
+.b-rows{list-style:none;margin:0;padding:0}
+.b-rows li{display:grid;grid-template-columns:1.25em 1fr auto;align-items:baseline;column-gap:8px;padding:7px 16px 3px;border-top:1px solid var(--rule);
+  font-weight:700;font-size:clamp(30px,8.4vw,39px);line-height:1.12}
+.b-rows li:first-child{background:var(--ink);color:var(--sheet);border-top-color:var(--ink)}
+.b-rows .s small{font-size:.48em;font-weight:600;margin-left:2px}
+.b-rows .u{color:var(--under)}
+.b-rows li:first-child .u{color:var(--under-inv)}
+.b-now{display:flex;align-items:stretch;margin:12px 16px 8px;border:2px solid var(--ink);font-weight:600;font-size:15px;line-height:1}
+.b-now b{background:var(--ink);color:var(--sheet);padding:6px 9px;font-weight:700}
+.b-now span{padding:6px 10px;text-transform:uppercase}
+.b-lines{margin:0 16px 10px;font-weight:600;font-size:16.5px;line-height:1.28;max-width:none}
+.b-foot{display:flex;justify-content:space-between;gap:10px;margin:0 16px;padding:7px 0 10px;border-top:2px solid var(--ink);font-weight:600;font-size:12.5px}
+.b-foot span:last-child{color:var(--ink-2);white-space:nowrap}
+
+.section{padding-block:clamp(52px,8vw,100px);border-top:1px solid var(--rule)}
+.section>h2,.section .h2{font-size:clamp(36px,4.8vw,56px);line-height:.98;letter-spacing:-.003em;max-width:16em;margin-bottom:22px}
+.section .intro{font-size:clamp(18px,1.5vw,20px);line-height:1.5;max-width:34em;margin-bottom:30px}
+
+/* how it works: a real sequence, numbered like ranks on the board */
+.steps{list-style:none;margin:0;padding:0;display:grid;column-gap:56px}
+@media (min-width:780px){.steps{grid-template-columns:1fr 1fr}}
+.steps li{display:grid;grid-template-columns:2.6rem 1fr;column-gap:14px;padding:22px 0 18px;border-top:2px solid var(--ink)}
+.steps .n{font:700 56px/.86 var(--display)}
+.steps h3{font-size:27px;line-height:1.08;margin:1px 0 7px}
+.steps p{margin:0}
+
+/* par: two players, the one with fewer minutes loses */
+.par{border-collapse:collapse;width:100%;max-width:620px;margin:4px 0 16px;font-family:var(--display);font-variant-numeric:tabular-nums}
+.par caption{caption-side:bottom;text-align:left;font:400 16px/1.5 var(--body);color:var(--ink-2);padding-top:12px}
+.par th{font-weight:600;font-size:15px;color:var(--ink-2);text-align:right;padding:0 0 6px 12px;border-bottom:2px solid var(--ink)}
+.par td{font-weight:700;font-size:clamp(25px,3.2vw,34px);text-align:right;padding:8px 0 6px 12px;border-bottom:1px solid var(--rule)}
+.par tbody th{font-weight:700;font-size:clamp(25px,3.2vw,34px);color:var(--ink);text-align:left;padding:8px 0 6px;border-bottom:1px solid var(--rule)}
+.par th:first-child,.par td:first-child{text-align:left;padding-left:0}
+.par .u{color:var(--under)}
+
+.cols{display:grid;gap:30px 64px}
+@media (min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+.cols h3{font-size:27px;line-height:1.1;padding-bottom:8px;margin-bottom:12px;border-bottom:2px solid var(--ink)}
+.cols ul{margin:0;padding-left:1.15em}
+.cols li{margin-bottom:10px}
+.cols li::marker{color:var(--ink-2)}
+
+.ways{display:grid;gap:40px 72px;align-items:center}
+@media (min-width:900px){.ways{grid-template-columns:minmax(0,1fr) 330px}}
+.ways h3{font-size:27px;line-height:1.1;margin:0 0 6px}
+.ways .way{padding:18px 0;border-top:2px solid var(--ink)}
+.ways .way p{margin:0}
+/* the e-paper board: a 1-bit picture on e-paper white, in its printed frame */
+.epaper{margin:0;justify-self:center;width:min(100%,330px)}
+.epaper .bezel{background:var(--frame);border-radius:16px;padding:20px 17px 30px;box-shadow:0 30px 50px -28px rgba(21,25,26,.6)}
+.epaper .screen{background:var(--epd);border-radius:2px}
+.epaper img{width:100%;mix-blend-mode:multiply}
+.epaper figcaption{font-size:14px;color:var(--ink-2);margin-top:12px}
+
+.price{font:700 clamp(30px,4.2vw,46px)/1.05 var(--display);max-width:19em;margin:0 0 20px}
+.price em{font-style:normal;color:var(--under)}
+
+.faq{max-width:780px}
+.faq details{border-top:1px solid var(--rule);padding:15px 0}
+.faq details:last-of-type{border-bottom:1px solid var(--rule)}
+.faq summary{display:flex;justify-content:space-between;gap:18px;cursor:pointer;list-style:none;font:700 23px/1.2 var(--display)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:600;flex:none}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:10px 0 4px}
+
+.band{display:grid;gap:22px;align-items:center;background:var(--ink);color:var(--sheet);border-radius:20px;padding:clamp(28px,5vw,56px);margin-block:clamp(44px,7vw,84px)}
+@media (min-width:900px){.band{grid-template-columns:1fr auto}}
+.band h2{font-size:clamp(36px,5.2vw,62px);line-height:.94;text-transform:uppercase;max-width:12em}
+.band p{color:#C9CFCB;margin:10px 0 0}
+.band .btn{background:var(--sheet);color:var(--ink)}
+.band .btn:hover{background:#fff}
+
+/* ---- pages with a form or a document ------------------------------------------------------ */
+
+.page{max-width:700px;margin:0 auto;padding:clamp(28px,5vw,58px) var(--gutter) 72px}
+.page h1{font-size:clamp(46px,8vw,78px);line-height:.9;text-transform:uppercase;margin-bottom:18px}
+.page h2{font-size:clamp(28px,3.6vw,36px);line-height:1.02;margin:44px 0 12px}
+.page h3{font-size:23px;line-height:1.15;margin:26px 0 8px}
+.page .lead{max-width:none}
+.page section{margin-top:8px}
+
+.stack{display:grid;gap:22px;margin-top:26px}
+.field{display:grid;gap:7px}
+.field>label,.field>.label{font-weight:700;font-size:16.5px}
+.input{width:100%;min-height:54px;padding:12px 14px;border:2px solid var(--ink);border-radius:10px;background:var(--sheet);color:var(--ink);font:400 18px/1.3 var(--body)}
+textarea.input{min-height:110px;resize:vertical}
+.input.mono{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:.03em}
+.input:focus{outline:3px solid var(--under);outline-offset:2px}
+.hint{font-size:14.5px;color:var(--ink-2);margin:0}
+.check{display:flex;align-items:flex-start;gap:12px;font-size:16.5px;line-height:1.45;cursor:pointer;max-width:36em}
+.check input{flex:none;width:24px;height:24px;margin:0;accent-color:var(--ink)}
+.seg{display:inline-flex;border:2px solid var(--ink);border-radius:10px;overflow:hidden;width:max-content}
+.seg button{min-height:46px;padding:10px 20px;border:0;background:var(--sheet);color:var(--ink);font:700 20px/1 var(--display);cursor:pointer}
+.seg button+button{border-left:2px solid var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px 18px}
+.error{color:var(--under);font-weight:700;margin:0;max-width:none}
+.error:empty{display:none}
+.saved{color:var(--good);font-weight:700;margin:0}
+.saved:empty{display:none}
+.hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
+
+.box{background:var(--sheet);border:2px solid var(--ink);border-radius:14px;padding:18px 20px;margin:22px 0}
+.box>:last-child{margin-bottom:0}
+.box.warn{border-color:var(--under)}
+.box h2,.box h3{margin-top:0}
+.keyline{display:block;font:600 19px/1.35 var(--display);letter-spacing:.02em;word-break:break-all;background:var(--paper);border:2px dashed var(--ink-2);border-radius:10px;padding:12px 14px;margin:10px 0 14px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.next{list-style:none;margin:20px 0 0;padding:0}
+.next li{display:grid;grid-template-columns:2.2rem 1fr;column-gap:12px;padding:18px 0;border-top:2px solid var(--ink)}
+.next .n{font:700 46px/.86 var(--display)}
+.next h3{margin:0 0 6px}
+.next p{margin:0 0 12px}
+
+.list{list-style:none;margin:10px 0 0;padding:0}
+.list li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;padding:12px 0;border-top:1px solid var(--rule)}
+.list li:last-child{border-bottom:1px solid var(--rule)}
+.list .name{font:700 25px/1.1 var(--display)}
+.list .meta{flex:1 1 220px;color:var(--ink-2);font-size:15px}
+.empty{color:var(--ink-2)}
+.status{font:700 clamp(25px,3.4vw,32px)/1.12 var(--display);margin:0 0 8px;max-width:none}
+
+/* numbers in the open */
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0 24px;margin:18px 0 6px}
+.stats div{padding:12px 0 14px;border-top:2px solid var(--ink)}
+.stats b{display:block;font:700 46px/1 var(--display);font-variant-numeric:tabular-nums}
+.stats span{font-size:14.5px;color:var(--ink-2)}
+.who{display:grid;gap:28px 56px;margin-top:10px}
+@media (min-width:760px){.who{grid-template-columns:1fr 1fr}}
+
+/* documents (privacy, terms) */
+.doc h1{font-size:clamp(32px,8vw,64px);hyphens:auto;-webkit-hyphens:auto}
+.doc h2{font-size:clamp(25px,3vw,31px);margin-top:42px}
+.doc h3{font-size:21px}
+.doc li{margin-bottom:6px}
+.doc blockquote{margin:16px 0;padding:2px 0 2px 16px;border-left:3px solid var(--ink-2)}
+.doc hr{border:0;border-top:1px solid var(--rule);margin:36px 0}
+.doc code{font-size:.92em}
+.table{overflow-x:auto;margin:14px 0 18px}
+.table table{border-collapse:collapse;min-width:520px;font-size:15px;line-height:1.45}
+.table th,.table td{text-align:left;vertical-align:top;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule)}
+.table th{font-weight:700;border-bottom:2px solid var(--ink)}
+.todo{background:var(--todo);padding:0 .2em;border-radius:3px}
+.draft{background:var(--todo);color:var(--ink);border-radius:12px;padding:14px 18px;margin:18px 0 26px;font-size:15.5px}
+.draft p{margin:0;max-width:none}
+.toc{columns:2 15em;margin:10px 0 0;padding-left:1.2em;font-size:15.5px}
+
+@media print{.top nav,.langbar,.band,.foot ul,.skip{display:none}body{background:#fff}}

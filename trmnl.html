@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Egen TRMNL · Lowscore</title>
+<meta name="description" content="Slik viser du Lowscore-tavla på en TRMNL e-papirskjerm.">
+<meta name="theme-color" content="#15191A">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ls-api" content="https://tpihsdosbteytykcxxce.supabase.co/functions/v1">
+<meta name="ls-region" content="">
+<meta name="ls-root" content="./">
+<link rel="canonical" href="https://vebjornlia.github.io/lowscore-web/trmnl.html">
+<link rel="alternate" hreflang="nb" href="https://vebjornlia.github.io/lowscore-web/trmnl.html"><link rel="alternate" hreflang="en" href="https://vebjornlia.github.io/lowscore-web/en/trmnl.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Egen TRMNL · Lowscore">
+<meta property="og:description" content="Slik viser du Lowscore-tavla på en TRMNL e-papirskjerm.">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:image" content="https://vebjornlia.github.io/lowscore-web/img/og-nb.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css?v=a9e9626a">
+<script src="site.js?v=2fd908fb" defer></script>
+</head>
+<body data-page="trmnl">
+<a class="skip" href="#main">Hopp til innholdet</a>
+<div class="langbar" id="langbar" hidden lang="en"><div class="wrap">This page is in Norwegian. <a href="en/trmnl.html" data-setlang="en">Read it in English</a></div></div>
+<header class="top wrap">
+<a class="wordmark" href="./" aria-label="Lowscore, til forsiden">Lowscore</a>
+<nav aria-label="Språk og start"><a class="lang" href="en/trmnl.html" hreflang="en" lang="en" data-setlang="en">English</a><a class="btn small" href="start.html">Lag en tavle</a></nav>
+</header>
+<main id="main" class="page">
+<h1>Egen TRMNL</h1>
+<p class="lead">Har du en TRMNL (7,5 tommer) eller DIY-settet med TRMNL-fastvaren, kan den vise tavla. Den henter et nytt bilde hvert kvarter fra 07 til 24 og sover om natta, så batteriet varer lenger.</p>
+<ol class="next">
+<li><span class="n" aria-hidden="true">1</span><div><h3>Lag en tavle</h3><p>Har dere ingen ennå, <a href="start.html">lag en</a>. Har dere en, åpne innstillingssiden.</p></div></li>
+<li><span class="n" aria-hidden="true">2</span><div><h3>Installer TRMNL-fastvaren</h3><p>Bruk TRMNL sin nettflasher, som beskrevet i <a href="https://docs.trmnl.com/go/diy/byod" rel="noopener">TRMNL sin guide for egen enhet</a>. Lowscore er laget for fastvareversjon 1.8.17.</p></div></li>
+<li><span class="n" aria-hidden="true">3</span><div><h3>Pek skjermen hit</h3><p>I wifi-oppsettet til skjermen kan du bytte serveradresse (<a href="https://docs.trmnl.com/go/diy/byod-s" rel="noopener">slik</a>). Bruk denne:</p><code class="keyline" id="server">https://tpihsdosbteytykcxxce.supabase.co/functions/v1/trmnl</code><button class="btn small quiet" type="button" onclick="LS.copy(document.getElementById('server').textContent,this)">Kopier adressen</button></div></li>
+<li><span class="n" aria-hidden="true">4</span><div><h3>Legg til skjermen</h3><p>Skjermen viser en QR-kode og en kode på ni tegn, som ABC-DEF-GHJ. Skann QR-koden med mobilen du styrer tavla fra, og trykk «Legg til skjermen». Eller skriv koden under Skjermer på innstillingssiden. Tavla kommer neste gang skjermen våkner: trykk på knappen, eller vent opptil fem minutter.</p></div></li>
+</ol>
+<h2>Godt å vite</h2>
+<ul>
+<li>Skjermen får sin egen nøkkel når den kobler seg til. Bare den som ser koden på skjermen, kan legge den til et kollektiv: adressen den viser i wifi-oppsettet, er ikke nok.</li>
+<li>Fjerner du skjermen på innstillingssiden, viser den en ny kode neste gang den våkner.</li>
+<li>Står skjermen fast, hold knappen inne i 15 sekunder. Da må wifi og serveradressen settes på nytt. Skjermen viser så en ny kode: skriv den under Skjermer, og fjern den gamle oppføringen.</li>
+<li>Lowscore sender aldri kommandoer som sletter wifi-oppsettet på skjermen.</li>
+<li>TRMNL er et eget firma. Lowscore er ikke laget av dem og har ingen avtale med dem.</li>
+</ul>
+</main>
+<footer class="foot wrap">
+<p>Lowscore er laget i Bergen av Vebjørn, sammen med Claude, en KI fra Anthropic, som har gjort mye av arbeidet. <a href="open.html">Slik ble det laget, og tallene så langt</a>.</p>
+<ul><li><a href="rules.html">Reglene</a></li><li><a href="trmnl.html">Egen TRMNL</a></li><li><a href="privacy.html">Personvern</a></li><li><a href="terms.html">Vilkår</a></li></ul>
+</footer>
+<script id="ls-words" type="application/json">{"copied":"Kopiert","errNetwork":"Fikk ikke kontakt. Sjekk nettet og prøv igjen.","errOther":"Noe gikk galt: {e}","notLive":"Lowscore er ikke åpnet for alle ennå. Prøv igjen snart."}</script>
+</body>
+</html>
