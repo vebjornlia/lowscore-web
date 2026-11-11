@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lowscore shortcut build</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* layout: one narrow column, a numbered run of steps in four parts, read on the phone you build on */
+:root{--bg:#EEF0EB;--card:#F8F9F6;--ink:#15191A;--ink2:#4C5552;--red:#C21F32;--line:#C9CEC8;--ok:#1F6B4A;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif;--body:"Atkinson Hyperlegible",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15191A;--card:#1E2425;--ink:#EEF0EB;--ink2:#A9B2AE;--red:#F0697A;--line:#38413F;--ok:#6FCF9F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15191A;--card:#1E2425;--ink:#EEF0EB;--ink2:#A9B2AE;--red:#F0697A;--line:#38413F;--ok:#6FCF9F;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:17px/1.5 var(--body)}
+.wrap{max-width:640px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+h1{font:700 44px/1 var(--display);margin:0;text-wrap:balance}
+h2{font:700 26px/1.1 var(--display);margin:0}
+p{margin:0}
+.lead{color:var(--ink2)}
+section{display:flex;flex-direction:column;gap:12px}
+ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;counter-reset:s}
+li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+li::before{content:counter(s);font:700 24px/1.2 var(--display);color:var(--red)}
+b{font-weight:700}
+code{font:15px/1.4 ui-monospace,Menlo,monospace;background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
+label{font-weight:700}
+input{font:16px var(--body);padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box}
+button{font:700 20px var(--display);letter-spacing:.02em;padding:10px 16px;border:0;border-radius:8px;background:var(--ink);color:var(--bg);cursor:pointer;align-self:flex-start}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.out{overflow-wrap:anywhere;font:14px/1.4 ui-monospace,Menlo,monospace;color:var(--ink2)}
+.msg{color:var(--ok);font-weight:700}
+.note{color:var(--ink2);font-size:15px}
+</style>
+</head>
+<body style="margin:0">
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <h1>Build the Lowscore shortcut once</h1>
+    <p class="lead">About five minutes on your iPhone. After this, flatmates only install it and make one automation. Menu names below are the English ones; the Norwegian ones are in brackets where I know them.</p>
+  </header>
+
+  <section>
+    <h2>Part 1 · Get your link</h2>
+    <ol>
+      <li><span>Open the join page on your iPhone, pick a name, and tap <b>Copy link 1</b> (Kopier lenke 1).</span></li>
+      <li><span>Paste it in the box below and copy the converted link. It is the same link with the last word changed from <code>open-</code> to <code>app-</code>.</span></li>
+    </ol>
+    <div class="tool">
+      <label for="in">Your link 1</label>
+      <input id="in" type="url" inputmode="url" autocomplete="off" placeholder="https://…/ev?t=…&e=open-">
+      <div class="out" id="out">Nothing pasted yet.</div>
+      <button id="copy" type="button" disabled>Copy converted link</button>
+      <div class="msg" id="msg" role="status"></div>
+      <p class="note">The link holds your personal code. It stays on this page; nothing is sent anywhere.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 2 · Build it</h2>
+    <ol>
+      <li><span>Open <b>Shortcuts</b> (Snarveier), tap <b>+</b>, and name the shortcut <b>Lowscore</b>.</span></li>
+      <li><span>Add the action <b>Text</b> (Tekst) and paste the converted link into it.</span></li>
+      <li><span>Add the action <b>Get Current App</b>. It needs iOS 18.2 or newer.</span></li>
+      <li><span>Add <b>Get Contents of URL</b> (Hent innhold på URL). In its URL field, insert the variable <b>Text</b> and, right after it, the variable <b>Current App</b>. Nothing else, no spaces.</span></li>
+      <li><span>Tap <b>Done</b> (Ferdig).</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Part 3 · Test it on your own phone</h2>
+    <ol>
+      <li><span>In Shortcuts: <b>Automation</b> › <b>+</b> › <b>App</b> › <b>Choose</b>: the apps you have from Instagram, TikTok, YouTube, Snapchat, Facebook, X, Reddit, Twitch.</span></li>
+      <li><span>Tick <b>both</b> Is Opened and Is Closed. Choose <b>Run Immediately</b> and turn <b>Notify When Run</b> off. Tap Next and pick <b>Lowscore</b> from the list.</span></li>
+      <li><span>Open Instagram for half a minute. If iPhone asks whether Lowscore may connect, choose <b>Always Allow</b>. Then go to the home screen.</span></li>
+      <li><span>Open the join page again. The bar at the bottom should say the board saw Instagram open, and then close.</span></li>
+    </ol>
+    <p class="note">If the open shows but the close never does, Get Current App fails on the home screen. Tell Claude, and we fall back to two automations.</p>
+  </section>
+
+  <section>
+    <h2>Part 4 · Make it shareable</h2>
+    <ol>
+      <li><span>Open the Lowscore shortcut for editing, tap the <b>i</b> at the bottom, then <b>Setup</b>. Add an import question for the <b>Text</b> action with the question “Paste your Lowscore link”. That way your own link is not shared and each person is asked for theirs.</span></li>
+      <li><span>Tap Share › <b>Copy iCloud Link</b>. Send the link to yourself (mail or a note) and paste it into the Claude chat, or tell Claude you need another way.</span></li>
+    </ol>
+    <p class="note">I haven't been able to check on a phone exactly where Setup sits in your iOS version. If you can't find it, send the link anyway and say so: before sharing, clear the Text action so your own link isn't in it.</p>
+  </section>
+</div>
+<script>
+(function(){
+  var inp=document.getElementById('in'),out=document.getElementById('out'),btn=document.getElementById('copy'),msg=document.getElementById('msg'),link='';
+  function upd(){
+    var v=inp.value.trim(),m=/^(https:\/\/[^\s]+\/ev\?t=[A-Za-z0-9_-]{16,128}&e=)(open-|app-|close|ping)?$/.exec(v);
+    msg.textContent='';
+    if(!v){link='';out.textContent='Nothing pasted yet.';}
+    else if(!m){link='';out.textContent='That does not look like link 1. It should end in &e=open-';}
+    else{link=m[1]+'app-';out.textContent=link;}
+    btn.disabled=!link;
+  }
+  inp.addEventListener('input',upd);
+  btn.addEventListener('click',function(){
+    if(!link)return;
+    navigator.clipboard.writeText(link).then(function(){msg.textContent='Copied.';},function(){
+      var r=document.createRange();r.selectNodeContents(out);var s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent='Selected. Copy it by hand.';
+    });
+  });
+})();
+</script>
+</body>
+</html>
